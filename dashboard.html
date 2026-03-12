@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#eef3ef;
+}
+
+/* header */
+.header{
+background:#0b6b3a;
+color:white;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+/* carte solde */
+.balance-card{
+background:linear-gradient(135deg,#0b6b3a,#16a34a);
+margin:20px;
+padding:30px;
+border-radius:20px;
+color:white;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.balance-title{
+font-size:16px;
+font-weight:bold;
+}
+
+.balance{
+font-size:40px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.toggle{
+margin-top:15px;
+background:white;
+color:#0b6b3a;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* menu applications */
+.apps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+padding:20px;
+}
+
+.app{
+background:white;
+padding:18px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* transactions */
+
+.transactions{
+padding:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+th,td{
+padding:10px;
+text-align:left;
+}
+
+th{
+background:#e8f5ec;
+}
+
+.credit{
+color:green;
+font-weight:bold;
+}
+
+.debit{
+color:red;
+font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+  GreenBank
+</div>
+<div class="balance-card">
+<div class="balance-title">
+  Solde disponible
+</div>
+<div id="balance" class="balance">
+  12 975 757 €
+</div>
+<button class="toggle" onclick="toggleBalance()">
+  </div>
+<div class="apps">
+<div class="app">Accueil</div>
+<div class="app">Comptes</div>
+<div class="app">Carte</div>
+<div class="app">Virements</div>
+<div class="app">Paiements</div>
+<div class="app">Épargne</div>
+<div class="app">Notifications</div>
+<div class="app">Paramètres</div>
+</div>
+<div class="transactions">
+<h3>Historique des transactions</h3>
+<table>
+<tr>
+<th>Date</th>
+<th>Heure</th>
+<th>Description</th>
+<th>IBAN</th>
+<th>Montant</th>
+
+</tr>
+<tr><td>12/03/2026</td><td>14:20</td><td>Virement reçu</td><td>FR76 3000 4000 5000</td><td class="credit">+2500 €</td></tr>
+<tr><td>12/03/2026</td><td>11:15</td><td>Restaurant Paris</td><td>FR18 4000 1200 8700</td><td class="debit">-85 €</td></tr>
+<tr><td>11/03/2026</td><td>20:32</td><td>Uber</td><td>FR56 2900 8700 3200</td><td class="debit">-18 €</td></tr>
+<tr><td>11/03/2026</td><td>18:45</td><td>Amazon</td><td>FR33 9000 4500 7800</td><td class="debit">-120 €</td></tr>
+<tr><td>11/03/2026</td><td>15:02</td><td>Netflix</td><td>FR65 2300 8700 7800</td><td class="debit">-13 €</td></tr>
+<tr><td>10/03/2026</td><td>21:10</td><td>Spotify</td><td>FR44 2100 8700 6500</td><td class="debit">-10 €</td></tr>
+<tr><td>10/03/2026</td><td>17:55</td><td>Carrefour</td><td>FR77 5600 8700 2300</td><td class="debit">-145 €</td></tr>
+<tr><td>10/03/2026</td><td>14:40</td><td>Virement reçu</td><td>FR19 6700 9900 1100</td><td class="credit">+600 €</td></tr>
+<tr><td>09/03/2026</td><td>22:03</td><td>McDonald's</td><td>FR33 8000 4500 2100</td><td class="debit">-12 €</td></tr>
+<tr><td>09/03/2026</td><td>18:22</td><td>KFC</td><td>FR22 9000 6500 5400</td><td class="debit">-18 €</td></tr>
+<tr><td>09/03/2026</td><td>15:40</td><td>Apple Store</td><td>FR55 1200 4500 2100</td><td class="debit">-199 €</td></tr>
+<tr><td>08/03/2026</td><td>21:11</td><td>Zara</td><td>FR34 8900 2100 7600</td><td class="debit">-95 €</td></tr>
+<tr><td>08/03/2026</td><td>19:33</td><td>H&M</td><td>FR78 3300 7800 2300</td><td class="debit">-80 €</td></tr>
+<tr><td>08/03/2026</td><td>16:10</td><td>Virement reçu</td><td>FR99 1200 8800 6700</td><td class="credit">+900 €</td></tr>
+<tr><td>07/03/2026</td><td>20:05</td><td>Station essence</td><td>FR88 5400 2300 7600</td><td class="debit">-90 €</td></tr>
+<tr><td>07/03/2026</td><td>17:45</td><td>Boulangerie</td><td>FR12 7800 1200 5600</td><td class="debit">-7 €</td></tr>
+<tr><td>07/03/2026</td><td>14:22</td><td>Pharmacie</td><td>FR21 6700 8900 1200</td><td class="debit">-16 €</td></tr>
+<tr><td>06/03/2026</td><td>22:10</td><td>Uber Eats</td><td>FR64 7800 3400 2300</td><td class="debit">-27 €</td></tr>
+<tr><td>06/03/2026</td><td>20:01</td><td>Deliveroo</td><td>FR90 6700 1200 7800</td><td class="debit">-22 €</td></tr>
+<tr><td>06/03/2026</td><td>17:55</td><td>Virement reçu</td><td>FR23 7800 9900 4500</td><td class="credit">+300 €</td></tr>
+<tr><td>05/03/2026</td><td>21:44</td><td>Fnac</td><td>FR11 7800 4400 2100</td><td class="debit">-75 €</td></tr>
+<tr><td>05/03/2026</td><td>18:05</td><td>IKEA</td><td>FR54 8900 4500 2300</td><td class="debit">-240 €</td></tr>
+<tr><td>05/03/2026</td><td>15:22</td><td>Virement reçu</td><td>FR33 6700 5600 8800</td><td class="credit">+150 €</td></tr>
+<tr><td>04/03/2026</td><td>21:50</td><td>Steam</td><td>FR89 2300 6700 9900</td><td class="debit">-59 €</td></tr>
+<tr><td>04/03/2026</td><td>19:18</td><td>Epic Games</td><td>FR55 1200 6700 1100</td><td class="debit">-20 €</td></tr>
+<tr><td>04/03/2026</td><td>16:44</td><td>Playstation Store</td><td>FR32 6700 7800 4500</td><td class="debit">-49 €</td></tr>
+</table>
+</div>
+<script>
+
+let visible=true;
+
+function toggleBalance(){
+
+const balance=document.getElementById("balance");
+
+if(visible){
+balance.innerHTML="••••••••";
+visible=false;
+}else{
+balance.innerHTML=12 975 757 €";
+  visible=true;
+}
+
+}
+
+</script>
+</body>
+</html>
